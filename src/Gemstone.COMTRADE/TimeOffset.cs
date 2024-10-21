@@ -25,7 +25,7 @@
 using System;
 using System.Globalization;
 
-#if NETSTANDARD
+#if NET40_OR_GREATER
 using Newtonsoft.Json;
 #else
 using System.Text.Json.Serialization;

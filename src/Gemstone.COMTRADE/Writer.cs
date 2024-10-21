@@ -467,10 +467,10 @@ namespace Gemstone.COMTRADE
             writer.WriteLine(schema.FileImage);
 
             writer.WriteLine("--- file type: INF ---");
-            writer.WriteLine(string.Join(CRLF, infLines ?? Array.Empty<string>()));
+            writer.WriteLine(string.Join(CRLF, infLines ?? []));
 
             writer.WriteLine("--- file type: HDR ---");
-            writer.WriteLine(string.Join(CRLF, hdrLines ?? Array.Empty<string>()));
+            writer.WriteLine(string.Join(CRLF, hdrLines ?? []));
 
             // Reserve space for binary byte count
             writer.WriteLine($"--- file type: DAT {(schema.FileType == FileType.Ascii ? "ASCII" : $"BINARY: {s_maxByteCountString}")} ---");

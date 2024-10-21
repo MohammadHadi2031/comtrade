@@ -30,7 +30,7 @@ using System.Globalization;
 using Gemstone.Numeric.EE;
 using Gemstone.StringExtensions;
 using Gemstone.Units;
-#if NETSTANDARD
+#if NET40_OR_GREATER
 using Newtonsoft.Json;
 #else
 using System.Text.Json.Serialization;

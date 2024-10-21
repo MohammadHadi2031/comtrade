@@ -31,7 +31,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Gemstone.IO;
-#if NETSTANDARD
+#if NET40_OR_GREATER
 using Newtonsoft.Json;
 #else
 using System.Text.Json.Serialization;

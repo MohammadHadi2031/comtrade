@@ -28,7 +28,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Gemstone.StringExtensions;
-#if NETSTANDARD
+#if NET40_OR_GREATER
 using Newtonsoft.Json;
 #else
 using System.Text.Json.Serialization;
@@ -112,7 +112,7 @@ namespace Gemstone.COMTRADE
             get => string.IsNullOrWhiteSpace(m_stationName) ? m_channelName : $"{m_stationName}:{m_channelName}";
             set
             {
-                string[] parts = value?.Split(':') ?? Array.Empty<string>();
+                string[] parts = value?.Split(':') ?? [];
 
                 if (parts.Length == 2)
                 {
