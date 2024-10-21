@@ -21,6 +21,8 @@
 //
 //******************************************************************************************************
 
+using System.Collections.Generic;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Gemstone.COMTRADE.UnitTests
@@ -32,6 +34,53 @@ namespace Gemstone.COMTRADE.UnitTests
         public void FunctionalityTests()
         {
             Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void Test()
+        {
+            var path = @"E:\MohammadHadi\Documents\ESFA\Hafez\Resource\SettingsAndRelayFiles\a.cfg";
+            var schema = new Schema(path);
+            var parser = new Parser();
+            parser.Schema = schema;
+
+            parser.OpenFiles();
+            var startTime = schema.StartTime;
+            var triggerTime = schema.TriggerTime;
+            var lineFrequency = schema.NominalFrequency;
+            var samplingFrequency = schema.SampleRates[0].Rate;
+
+            var analogSignals = new List<double[]>();
+            var digitalSignals = new List<byte[]>();
+            var sampleCount = parser.Schema.TotalSamples;
+
+            for (int i = 0; i < parser.Schema.TotalAnalogChannels; i++)
+            {
+                analogSignals.Add(new double[sampleCount]);
+            }
+
+            for (int i = 0; i < parser.Schema.TotalDigitalChannels; i++)
+            {
+                digitalSignals.Add(new byte[sampleCount]);
+            }
+
+            var sampleNumber = 0;
+
+            while (parser.ReadNext())
+            {
+                for (int i = 0; i < analogSignals.Count; i++)
+                {
+                    analogSignals[i][sampleNumber] = parser.Values[i];
+                }
+
+                for (int i = 0; i < digitalSignals.Count; i++)
+                {
+                    digitalSignals[i][sampleNumber] = (byte)parser.Values[analogSignals.Count + i];
+                }
+
+                sampleNumber++;
+            } 
+
         }
     }
 }

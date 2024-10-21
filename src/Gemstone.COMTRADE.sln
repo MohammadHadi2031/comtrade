@@ -27,6 +27,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{DFC219B4-2CF
 		..\docs\img\gemstone-wide-600.png = ..\docs\img\gemstone-wide-600.png
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gemstone.Numeric", "Gemstone.Numeric\Gemstone.Numeric.csproj", "{2007A5B0-AC29-4063-9362-412B460A4C35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gemstone.Common", "Gemstone.Common\Gemstone.Common.csproj", "{BDBCE113-D1D4-4FB4-B736-6F031D375AB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{F797F0F0-1E2F-4E5A-BFC5-B3EB8192E566}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E0CCFF2A-C2DF-436C-B34C-A20215DA227A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E0CCFF2A-C2DF-436C-B34C-A20215DA227A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2007A5B0-AC29-4063-9362-412B460A4C35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2007A5B0-AC29-4063-9362-412B460A4C35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2007A5B0-AC29-4063-9362-412B460A4C35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2007A5B0-AC29-4063-9362-412B460A4C35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBCE113-D1D4-4FB4-B736-6F031D375AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBCE113-D1D4-4FB4-B736-6F031D375AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBCE113-D1D4-4FB4-B736-6F031D375AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBCE113-D1D4-4FB4-B736-6F031D375AB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
