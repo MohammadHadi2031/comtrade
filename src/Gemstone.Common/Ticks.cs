@@ -71,6 +71,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
+
 using Gemstone.Units;
 
 namespace Gemstone;
@@ -1576,7 +1577,9 @@ public struct Ticks : IComparable, IFormattable, IConvertible, IComparable<Ticks
     /// per second, and 80,000 for 120 samples per second. Actual slack value may need to be more or less depending on the size of the
     /// source timestamp variation.
     /// </remarks>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static Ticks AlignToSubsecondDistribution(Ticks timestamp, int samplesPerSecond, long timeResolution)
     {
         // Calculate destination ticks for this frame
@@ -1648,7 +1651,9 @@ public struct Ticks : IComparable, IFormattable, IConvertible, IComparable<Ticks
     /// <param name="timestamp">Timestamp to align.</param>
     /// <param name="samplesPerSecond">Samples per second to use for distribution.</param>
     /// <returns>The nearest sub-second distribution timestamp for given <paramref name="timestamp"/>.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static Ticks RoundToSubsecondDistribution(Ticks timestamp, int samplesPerSecond)
     {
         // Calculate destination ticks for this frame
@@ -1680,7 +1685,9 @@ public struct Ticks : IComparable, IFormattable, IConvertible, IComparable<Ticks
     /// <param name="samplesPerSecond">Samples per second to use for distribution.</param>
     /// <param name="baseline"> Starting Timestamp of the Distribution.</param>
     /// <returns>The nearest distribution timestamp for given <paramref name="timestamp"/>.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static Ticks RoundToSecondDistribution(Ticks timestamp, double samplesPerSecond, Ticks baseline)
     {
         // Calculate destination ticks for this frame
@@ -1713,7 +1720,9 @@ public struct Ticks : IComparable, IFormattable, IConvertible, IComparable<Ticks
     /// <param name="tolerance">Tolerance of the TS in ticks.</param>
     /// <param name="baseline"> Starting Timestamp of the Distribution.</param>
     /// <returns>The distribution timestamp for given <paramref name="timestamp"/>or <see cref="Ticks.MinValue"/> .</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static Ticks ToSecondDistribution(Ticks timestamp, double samplesPerSecond, Ticks baseline, int tolerance)
     {
         Ticks result = RoundToSecondDistribution(timestamp, samplesPerSecond, baseline);

@@ -82,7 +82,9 @@ public static class LittleEndian
     /// <returns>true if the byte at startIndex in value is nonzero; otherwise, false.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe bool ToBoolean(byte* buffer)
     {
         return buffer[0] != 0;
@@ -95,7 +97,9 @@ public static class LittleEndian
     /// <returns>A character formed by two bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe char ToChar(byte* buffer)
     {
         return (char)ToInt16(buffer);
@@ -108,7 +112,9 @@ public static class LittleEndian
     /// <returns>A double-precision floating point number formed by eight bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe double ToDouble(byte* buffer)
     {
         long int64 = ToInt64(buffer);
@@ -122,7 +128,9 @@ public static class LittleEndian
     /// <returns>A 16-bit signed integer formed by two bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe short ToInt16(byte* buffer)
     {
         return (short)(buffer[0] | buffer[1] << 8);
@@ -135,7 +143,9 @@ public static class LittleEndian
     /// <returns>A 32-bit signed integer formed by four bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int ToInt32(byte* buffer)
     {
         return buffer[0] |
@@ -151,7 +161,9 @@ public static class LittleEndian
     /// <returns>A 64-bit signed integer formed by eight bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe long ToInt64(byte* buffer)
     {
         return buffer[0] |
@@ -171,7 +183,9 @@ public static class LittleEndian
     /// <returns>A single-precision floating point number formed by four bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe float ToSingle(byte* buffer)
     {
         int int32 = ToInt32(buffer);
@@ -185,7 +199,9 @@ public static class LittleEndian
     /// <returns>A 16-bit unsigned integer formed by two bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe ushort ToUInt16(byte* buffer)
     {
         return (ushort)ToInt16(buffer);
@@ -198,7 +214,9 @@ public static class LittleEndian
     /// <returns>A 32-bit unsigned integer formed by four bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe uint ToUInt32(byte* buffer)
     {
         return (uint)ToInt32(buffer);
@@ -211,7 +229,9 @@ public static class LittleEndian
     /// <returns>A 64-bit unsigned integer formed by eight bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe ulong ToUInt64(byte* value)
     {
         return (ulong)ToInt64(value);
@@ -224,7 +244,9 @@ public static class LittleEndian
     /// <returns>A 128-bit decimal formed by 16 bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe decimal ToDecimal(byte* buffer)
     {
         if (BitConverter.IsLittleEndian)
@@ -267,7 +289,9 @@ public static class LittleEndian
     /// <returns>true if the byte at startIndex in value is nonzero; otherwise, false.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static bool ToBoolean(byte[] buffer, int startIndex)
     {
         return buffer[startIndex] != 0;
@@ -281,7 +305,9 @@ public static class LittleEndian
     /// <returns>A character formed by two bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static char ToChar(byte[] buffer, int startIndex)
     {
         return (char)ToInt16(buffer, startIndex);
@@ -295,7 +321,9 @@ public static class LittleEndian
     /// <returns>A double-precision floating point number formed by eight bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe double ToDouble(byte[] buffer, int startIndex)
     {
         long int64 = ToInt64(buffer, startIndex);
@@ -310,7 +338,9 @@ public static class LittleEndian
     /// <returns>A 16-bit signed integer formed by two bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static short ToInt16(byte[] buffer, int startIndex)
     {
         return (short)(buffer[startIndex] | buffer[startIndex + 1] << 8);
@@ -324,7 +354,9 @@ public static class LittleEndian
     /// <returns>A 32-bit signed integer formed by four bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int ToInt32(byte[] buffer, int startIndex)
     {
         return buffer[startIndex + 0] |
@@ -341,7 +373,9 @@ public static class LittleEndian
     /// <returns>A 64-bit signed integer formed by eight bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static long ToInt64(byte[] buffer, int startIndex)
     {
         return buffer[startIndex + 0] |
@@ -362,7 +396,9 @@ public static class LittleEndian
     /// <returns>A single-precision floating point number formed by four bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe float ToSingle(byte[] buffer, int startIndex)
     {
         int int32 = ToInt32(buffer, startIndex);
@@ -377,7 +413,9 @@ public static class LittleEndian
     /// <returns>A 16-bit unsigned integer formed by two bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static ushort ToUInt16(byte[] buffer, int startIndex)
     {
         return (ushort)ToInt16(buffer, startIndex);
@@ -391,7 +429,9 @@ public static class LittleEndian
     /// <returns>A 32-bit unsigned integer formed by four bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static uint ToUInt32(byte[] buffer, int startIndex)
     {
         return (uint)ToInt32(buffer, startIndex);
@@ -405,7 +445,9 @@ public static class LittleEndian
     /// <returns>A 64-bit unsigned integer formed by eight bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static ulong ToUInt64(byte[] value, int startIndex)
     {
         return (ulong)ToInt64(value, startIndex);
@@ -419,7 +461,9 @@ public static class LittleEndian
     /// <returns>A 128-bit decimal formed by 16 bytes beginning at startIndex.</returns>
     /// <exception cref="ArgumentNullException">value is null.</exception>
     /// <exception cref="ArgumentOutOfRangeException">startIndex is less than zero or greater than the length of value minus 1.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe decimal ToDecimal(byte[] buffer, int startIndex)
     {
         buffer.ValidateParameters(startIndex, 16);
@@ -466,7 +510,9 @@ public static class LittleEndian
     /// <typeparam name="T">Native value type to get bytes for.</typeparam>
     /// <exception cref="ArgumentException"><paramref name="value"/> type is not primitive.</exception>
     /// <exception cref="InvalidOperationException">Cannot get bytes for <paramref name="value"/> type.</exception>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes<T>(T value) where T : struct, IConvertible
     {
         if (!typeof(T).IsPrimitive)
@@ -496,7 +542,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The <see cref="bool"/> value to convert.</param>
     /// <returns>An array of bytes with length 1.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes(bool value)
     {
         return new[] { value ? (byte)1 : (byte)0 };
@@ -507,7 +555,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The Unicode character value to convert.</param>
     /// <returns>An array of bytes with length 2.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes(char value)
     {
         return GetBytes((short)value);
@@ -518,7 +568,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 8.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe byte[] GetBytes(double value)
     {
         return GetBytes(*(long*)&value);
@@ -529,7 +581,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 2.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes(short value)
     {
         return new[]
@@ -544,7 +598,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 4.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes(int value)
     {
         return new[]
@@ -561,7 +617,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 8.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes(long value)
     {
         return new[]
@@ -582,7 +640,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 4.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe byte[] GetBytes(float value)
     {
         return GetBytes(*(int*)&value);
@@ -593,7 +653,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 2.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes(ushort value)
     {
         return GetBytes((short)value);
@@ -604,7 +666,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 4.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes(uint value)
     {
         return GetBytes((int)value);
@@ -615,7 +679,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 8.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte[] GetBytes(ulong value)
     {
         return GetBytes((long)value);
@@ -626,7 +692,9 @@ public static class LittleEndian
     /// </summary>
     /// <param name="value">The number to convert.</param>
     /// <returns>An array of bytes with length 16.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe byte[] GetBytes(decimal value)
     {
         byte[] destinationArray = new byte[16];
@@ -678,7 +746,9 @@ public static class LittleEndian
     /// <exception cref="ArgumentException"><paramref name="value"/> type is not primitive.</exception>
     /// <exception cref="InvalidOperationException">Cannot get bytes for <paramref name="value"/> type.</exception>
     /// <returns>Length of bytes copied into array based on size of <typeparamref name="T"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes<T>(T value, byte[] destinationArray, int destinationIndex) where T : struct, IConvertible
     {
         if (!typeof(T).IsPrimitive)
@@ -710,7 +780,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes(bool value, byte[] destinationArray, int destinationIndex)
     {
         destinationArray[destinationIndex] = value ? (byte)1 : (byte)0;
@@ -724,7 +796,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes(char value, byte[] destinationArray, int destinationIndex)
     {
         return CopyBytes((short)value, destinationArray, destinationIndex);
@@ -737,7 +811,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(double value, byte[] destinationArray, int destinationIndex)
     {
         return CopyBytes(*(long*)&value, destinationArray, destinationIndex);
@@ -750,7 +826,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes(short value, byte[] destinationArray, int destinationIndex)
     {
         destinationArray[destinationIndex] = (byte)value;
@@ -766,7 +844,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes(int value, byte[] destinationArray, int destinationIndex)
     {
         destinationArray[destinationIndex + 0] = (byte)value;
@@ -784,7 +864,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes(long value, byte[] destinationArray, int destinationIndex)
     {
         destinationArray[destinationIndex + 0] = (byte)value;
@@ -806,7 +888,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(float value, byte[] destinationArray, int destinationIndex)
     {
         return CopyBytes(*(int*)&value, destinationArray, destinationIndex);
@@ -819,7 +903,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes(ushort value, byte[] destinationArray, int destinationIndex)
     {
         return CopyBytes((short)value, destinationArray, destinationIndex);
@@ -832,7 +918,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes(uint value, byte[] destinationArray, int destinationIndex)
     {
         return CopyBytes((int)value, destinationArray, destinationIndex);
@@ -845,7 +933,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int CopyBytes(ulong value, byte[] destinationArray, int destinationIndex)
     {
         return CopyBytes((long)value, destinationArray, destinationIndex);
@@ -858,7 +948,9 @@ public static class LittleEndian
     /// <param name="destinationArray">The destination buffer.</param>
     /// <param name="destinationIndex">The byte offset into <paramref name="destinationArray"/>.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(decimal value, byte[] destinationArray, int destinationIndex)
     {
         destinationArray.ValidateParameters(destinationIndex, 16);
@@ -909,7 +1001,9 @@ public static class LittleEndian
     /// <exception cref="ArgumentException"><paramref name="value"/> type is not primitive.</exception>
     /// <exception cref="InvalidOperationException">Cannot get bytes for <paramref name="value"/> type.</exception>
     /// <returns>Length of bytes copied into array based on size of <typeparamref name="T"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes<T>(T value, byte* destination) where T : struct, IConvertible
     {
         if (!typeof(T).IsPrimitive)
@@ -940,7 +1034,9 @@ public static class LittleEndian
     /// <param name="value">The <see cref="bool"/> value to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(bool value, byte* destination)
     {
         destination[0] = value ? (byte)1 : (byte)0;
@@ -953,7 +1049,9 @@ public static class LittleEndian
     /// <param name="value">The Unicode character value to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(char value, byte* destination)
     {
         return CopyBytes((short)value, destination);
@@ -965,7 +1063,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(double value, byte* destination)
     {
         return CopyBytes(*(long*)&value, destination);
@@ -977,7 +1077,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(short value, byte* destination)
     {
         destination[0] = (byte)value;
@@ -992,7 +1094,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(int value, byte* destination)
     {
         destination[0] = (byte)value;
@@ -1009,7 +1113,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(long value, byte* destination)
     {
         destination[0] = (byte)value;
@@ -1030,7 +1136,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(float value, byte* destination)
     {
         return CopyBytes(*(int*)&value, destination);
@@ -1042,7 +1150,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(ushort value, byte* destination)
     {
         return CopyBytes((short)value, destination);
@@ -1054,7 +1164,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(uint value, byte* destination)
     {
         return CopyBytes((int)value, destination);
@@ -1066,7 +1178,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(ulong value, byte* destination)
     {
         return CopyBytes((long)value, destination);
@@ -1078,7 +1192,9 @@ public static class LittleEndian
     /// <param name="value">The number to convert and copy.</param>
     /// <param name="destination">The destination buffer.</param>
     /// <returns>Length of bytes copied into array based on size of <paramref name="value"/>.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static unsafe int CopyBytes(decimal value, byte* destination)
     {
         if (BitConverter.IsLittleEndian)

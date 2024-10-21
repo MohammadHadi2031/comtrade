@@ -15,7 +15,9 @@ public static class ArrayExtensions
     /// <paramref name="startIndex"/> and <paramref name="length"/> will exceed <paramref name="array"/> length.
     /// </exception>
     /// <typeparam name="T"><see cref="Type"/> of array.</typeparam>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static void ValidateParameters<T>(this T[]? array, int startIndex, int length)
     {
         if (array is null || startIndex < 0 || length < 0 || startIndex + length > array.Length)

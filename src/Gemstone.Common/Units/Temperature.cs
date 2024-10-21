@@ -322,7 +322,9 @@ public struct Temperature : IComparable, IFormattable, IConvertible, IComparable
     }
 
     // Calculate temperature based on value = (K - offset) / factor - step
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private Temperature ToTemperature(double factor, double offset, double step)
     {
         return (m_value - offset) / factor - step;
@@ -1039,7 +1041,9 @@ public struct Temperature : IComparable, IFormattable, IConvertible, IComparable
     }
 
     // Calculate temperature based on K = (value + step) * factor + offset
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private static Temperature FromTemperature(double value, double factor, double offset, double step)
     {
         return new Temperature((value + step) * factor + offset);

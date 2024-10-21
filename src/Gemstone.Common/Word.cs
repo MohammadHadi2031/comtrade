@@ -40,7 +40,9 @@ public static class Word
     /// <param name="high">High byte.</param>
     /// <param name="low">Low byte.</param>
     /// <returns>An unsigned 16-bit word made from the two specified bytes.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static ushort MakeWord(byte high, byte low)
     {
         return (ushort)(low + (high << 8));
@@ -52,7 +54,9 @@ public static class Word
     /// <param name="high">High word.</param>
     /// <param name="low">Low word.</param>
     /// <returns>An unsigned 32-bit double-word made from the two specified unsigned 16-bit words.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static uint MakeDoubleWord(ushort high, ushort low)
     {
         return low + ((uint)high << 16);
@@ -64,7 +68,9 @@ public static class Word
     /// <param name="high">High double-word.</param>
     /// <param name="low">Low double-word.</param>
     /// <returns>An unsigned 64-bit quad-word made from the two specified unsigned 32-bit double-words.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static ulong MakeQuadWord(uint high, uint low)
     {
         return low + ((ulong)high << 32);

@@ -39,7 +39,9 @@ public static class WordExtensions
     /// </summary>
     /// <param name="word">Word value to align.</param>
     /// <returns>Word value aligned to next 16-bit boundary.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static short AlignWord(this short word)
     {
         return (short)(word + 1 - (word - 1) % 2);
@@ -50,7 +52,9 @@ public static class WordExtensions
     /// </summary>
     /// <param name="word">Word value to align.</param>
     /// <returns>Word value aligned to next 16-bit boundary.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static ushort AlignWord(this ushort word)
     {
         return (ushort)(word + 1 - (word - 1) % 2);
@@ -61,7 +65,9 @@ public static class WordExtensions
     /// </summary>
     /// <param name="doubleWord">Double-word value to align.</param>
     /// <returns>Double-word value aligned to next 32-bit boundary.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static int AlignDoubleWord(this int doubleWord)
     {
         return doubleWord + 3 - (doubleWord - 1) % 4;
@@ -72,7 +78,9 @@ public static class WordExtensions
     /// </summary>
     /// <param name="doubleWord">Double-word value to align.</param>
     /// <returns>Double-word value aligned to next 32-bit boundary.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static uint AlignDoubleWord(this uint doubleWord)
     {
         return doubleWord + 3 - (doubleWord - 1) % 4;
@@ -83,7 +91,9 @@ public static class WordExtensions
     /// </summary>
     /// <param name="quadWord">Quad-word value to align.</param>
     /// <returns>Quad-word value aligned to next 64-bit boundary.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static long AlignQuadWord(this long quadWord)
     {
         return quadWord + 7 - (quadWord - 1) % 8;
@@ -94,7 +104,9 @@ public static class WordExtensions
     /// </summary>
     /// <param name="quadWord">Quad-word value to align.</param>
     /// <returns>Quad-word value aligned to next 64-bit boundary.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static ulong AlignQuadWord(this ulong quadWord)
     {
         return quadWord + 7 - (quadWord - 1) % 8;
@@ -105,7 +117,9 @@ public static class WordExtensions
     /// </summary>
     /// <param name="value">Byte value.</param>
     /// <returns>The high-nibble of the specified byte value.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte HighNibble(this byte value)
     {
         return (byte)((value & 0xF0) >> 4);
@@ -120,7 +134,9 @@ public static class WordExtensions
     /// On little-endian architectures (e.g., Intel platforms), this will be the byte value whose in-memory representation
     /// is the same as the right-most, most-significant-byte of the integer value.
     /// </remarks>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte HighByte(this ushort word)
     {
         return (byte)((word & 0xFF00) >> 8);
@@ -136,7 +152,9 @@ public static class WordExtensions
     /// whose in-memory representation is the same as the right-most, most-significant-word
     /// of the integer value.
     /// </remarks>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static ushort HighWord(this uint doubleWord)
     {
         return (ushort)((doubleWord & 0xFFFF0000U) >> 16);
@@ -152,7 +170,9 @@ public static class WordExtensions
     /// whose in-memory representation is the same as the right-most, most-significant-word
     /// of the integer value.
     /// </remarks>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static uint HighDoubleWord(this ulong quadWord)
     {
         return (uint)((quadWord & 0xFFFFFFFF00000000UL) >> 32);
@@ -163,7 +183,9 @@ public static class WordExtensions
     /// </summary>
     /// <param name="value">Byte value.</param>
     /// <returns>The low-nibble of the specified byte value.</returns>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte LowNibble(this byte value)
     {
         return (byte)(value & 0x0F);
@@ -179,7 +201,9 @@ public static class WordExtensions
     /// whose in-memory representation is the same as the left-most, least-significant-byte
     /// of the integer value.
     /// </remarks>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static byte LowByte(this ushort word)
     {
         return (byte)(word & 0x00FF);
@@ -195,7 +219,9 @@ public static class WordExtensions
     /// whose in-memory representation is the same as the left-most, least-significant-word
     /// of the integer value.
     /// </remarks>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static ushort LowWord(this uint doubleWord)
     {
         return (ushort)(doubleWord & 0x0000FFFFU);
@@ -211,7 +237,9 @@ public static class WordExtensions
     /// whose in-memory representation is the same as the left-most, least-significant-word
     /// of the integer value.
     /// </remarks>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static uint LowDoubleWord(this ulong quadWord)
     {
         return (uint)(quadWord & 0x00000000FFFFFFFFUL);

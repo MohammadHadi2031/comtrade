@@ -23,14 +23,18 @@ internal static class EventHandlerExtensions
     /// <param name="sender">Event source.</param>
     /// <param name="args">Event arguments.</param>
     /// <param name="parallel">Call event handlers in parallel, when attached handlers are greater than one.</param>
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static void SafeInvoke<TEventHandler, TEventArgs>(this TEventHandler? eventHandler, object? eventLock, Action<Exception, Delegate>? exceptionHandler, object? sender, TEventArgs args, bool parallel = false) where TEventHandler : MulticastDelegate where TEventArgs : EventArgs
     {
         InvokeEventHandlers(eventHandler, eventLock, exceptionHandler, sender, args,
             parallel ? InvokeMode.InvokeParallel : InvokeMode.Invoke);
     }
 
+#if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private static Task[]? InvokeEventHandlers<TEventHandler, TEventArgs>(TEventHandler? eventHandler, object? eventLock, Action<Exception, Delegate>? exceptionHandler, object? sender, TEventArgs args, InvokeMode invokeMode) where TEventHandler : MulticastDelegate where TEventArgs : EventArgs
     {
         if (eventHandler is null)
@@ -91,7 +95,7 @@ internal static class EventHandlerExtensions
         switch (invokeMode)
         {
             case InvokeMode.InvokeAsync:
-                return handlers.Select(handler => Task.Run(() => invokeHandler(handler))).ToArray();
+                return handlers.Select(handler => Task.Factory.StartNew(() => invokeHandler(handler))).ToArray();
             case InvokeMode.InvokeParallel when handlers.Length > 1:
                 Parallel.ForEach(handlers, invokeHandler);
                 break;

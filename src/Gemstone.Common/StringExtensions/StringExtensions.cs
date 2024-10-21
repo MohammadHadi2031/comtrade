@@ -193,7 +193,9 @@ public static class StringExtensions
     /// <typeparam name="T"><see cref="Type"/> of <see cref="object"/> to convert to string.</typeparam>
     /// <param name="value">Value to convert to string.</param>
     /// <returns><paramref name="value"/> as a string; if <paramref name="value"/> is null, empty string ("") will be returned. </returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static string ToNonNullString<T>(this T value) where T : class?
     {
         return value is null or DBNull ? "" : value.ToString()!;
@@ -220,7 +222,9 @@ public static class StringExtensions
     /// </summary>
     /// <param name="value"><see cref="string"/> to verify is not null.</param>
     /// <returns><see cref="string"/> value; if <paramref name="value"/> is null, empty string ("") will be returned.</returns>
+    #if NET45_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     public static string ToNonNullString(this string? value)
     {
         return value ?? "";
@@ -274,20 +278,20 @@ public static class StringExtensions
     /// <param name="value">Input to string to convert to a string.</param>
     /// <param name="encoding">String encoding to use; defaults to <see cref="Encoding.UTF8"/>.</param>
     /// <returns>String <paramref name="value"/> encoded onto a stream.</returns>
-    public static Stream ToStream(this string? value, Encoding? encoding = null)
-    {
-        MemoryStream stream = new();
+    //public static Stream ToStream(this string? value, Encoding? encoding = null)
+    //{
+    //    MemoryStream stream = new();
 
-        using (StreamWriter writer = new(stream, encoding ?? Encoding.UTF8, 4096, true))
-        {
-            writer.Write(value);
-            writer.Flush();
-        }
+    //    using (StreamWriter writer = new(stream, encoding ?? Encoding.UTF8, 4096, true))
+    //    {
+    //        writer.Write(value);
+    //        writer.Flush();
+    //    }
 
-        stream.Position = 0;
+    //    stream.Position = 0;
 
-        return stream;
-    }
+    //    return stream;
+    //}
 
     /// <summary>
     /// Asynchronously converts string into a stream using the specified <paramref name="encoding"/>.
@@ -295,20 +299,20 @@ public static class StringExtensions
     /// <param name="value">Input to string to convert to a string.</param>
     /// <param name="encoding">String encoding to use; defaults to <see cref="Encoding.UTF8"/>.</param>
     /// <returns>String <paramref name="value"/> encoded onto a stream.</returns>
-    public static async Task<Stream> ToStreamAsync(this string? value, Encoding? encoding = null)
-    {
-        MemoryStream stream = new();
+    //public static async Task<Stream> ToStreamAsync(this string? value, Encoding? encoding = null)
+    //{
+    //    MemoryStream stream = new();
 
-        await using (StreamWriter writer = new(stream, encoding ?? Encoding.UTF8, 4096, true))
-        {
-            await writer.WriteAsync(value);
-            await writer.FlushAsync();
-        }
+    //    await using (StreamWriter writer = new(stream, encoding ?? Encoding.UTF8, 4096, true))
+    //    {
+    //        await writer.WriteAsync(value);
+    //        await writer.FlushAsync();
+    //    }
 
-        stream.Position = 0;
+    //    stream.Position = 0;
 
-        return stream;
-    }
+    //    return stream;
+    //}
 
     /// <summary>
     /// Turns source string into an array of string segments - each with a set maximum width - for parsing or displaying.
@@ -2252,7 +2256,7 @@ public static class StringExtensions
             foreach (PropertyInfo property in properties)
             {
                 string key = property.Name;
-                object value = property.GetValue(parameters) ?? "";
+                object value = property.GetValue(parameters, null) ?? "";
                 yield return new KeyValuePair<string, object>(key, value);
             }
         }
