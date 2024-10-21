@@ -142,7 +142,12 @@ public static class VoltageLevelExtensions
     /// <returns>Voltage level for the specified <paramref name="level"/>.</returns>
     public static int Value(this VoltageLevel level)
     {
-        return VoltageLevelMap.GetValueOrDefault(level, 0);
+        if (VoltageLevelMap.TryGetValue(level, out var value))
+        {
+            return value;
+        }
+
+        return 0;
     }
 
     /// <summary>
